@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1093331040209",
+    "project_id": "chat-app-8f414",
+    "storage_bucket": "chat-app-8f414.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1093331040209:android:51cc49ed184ec4089512f0",
+        "android_client_info": {
+          "package_name": "com.intentsoft.chatapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1093331040209-uo6a4k4s61jatbr59l7e2um7t9lqde9k.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC2SeKxKeAHq4TNkOKsSkCRyaKtWZ3D4pM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1093331040209-uo6a4k4s61jatbr59l7e2um7t9lqde9k.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
