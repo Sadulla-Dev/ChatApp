@@ -39,13 +39,9 @@ class OTPActivity : AppCompatActivity() {
             .setTimeout(60L, TimeUnit.SECONDS)
             .setActivity(this@OTPActivity)
             .setCallbacks(object : PhoneAuthProvider.OnVerificationStateChangedCallbacks(){
-                override fun onVerificationCompleted(p0: PhoneAuthCredential) {
-                    TODO("Not yet implemented")
-                }
+                override fun onVerificationCompleted(p0: PhoneAuthCredential) {}
 
-                override fun onVerificationFailed(p0: FirebaseException) {
-                    TODO("Not yet implemented")
-                }
+                override fun onVerificationFailed(p0: FirebaseException) {}
                 override fun onCodeSent(
                     verifyId: String,
                     forceResendingToken: PhoneAuthProvider.ForceResendingToken) {
