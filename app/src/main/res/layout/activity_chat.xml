@@ -71,18 +71,21 @@
 
 
     </androidx.appcompat.widget.Toolbar>
+
     <LinearLayout
-        android:orientation="vertical"
-        android:layout_below="@id/toolbar"
         android:id="@+id/linear01"
-        android:layout_marginBottom="120dp"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_below="@id/toolbar"
+        android:layout_marginBottom="120dp"
+        android:background="@color/white"
+        android:orientation="vertical">
+
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerView"
-            android:visibility="visible"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:visibility="visible" />
     </LinearLayout>
 
     <LinearLayout

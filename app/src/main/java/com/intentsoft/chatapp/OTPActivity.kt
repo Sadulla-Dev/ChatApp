@@ -19,12 +19,10 @@ class OTPActivity : AppCompatActivity() {
     var verificationId:String? = null
     var auth: FirebaseAuth? = null
     var dialog : ProgressDialog? = null
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityOtpactivityBinding.inflate(layoutInflater)
         setContentView(binding!!.root)
-
         dialog = ProgressDialog(this@OTPActivity)
         dialog!!.setMessage("Sending OTP...")
         dialog!!.setCancelable(false)

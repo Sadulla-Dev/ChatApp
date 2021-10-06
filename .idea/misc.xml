@@ -6,13 +6,13 @@
         <entry key="app/src/main/res/drawable-v24/background_shape.xml" value="0.25925925925925924" />
         <entry key="app/src/main/res/drawable-v24/ic_send.xml" value="0.2518518518518518" />
         <entry key="app/src/main/res/drawable/receive_drawable.xml" value="0.2518518518518518" />
-        <entry key="app/src/main/res/layout/activity_chat.xml" value="0.2803442028985507" />
+        <entry key="app/src/main/res/layout/activity_chat.xml" value="0.2788304195348047" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.2921195652173913" />
-        <entry key="app/src/main/res/layout/activity_otpactivity.xml" value="0.2921195652173913" />
+        <entry key="app/src/main/res/layout/activity_otpactivity.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_set_up_profile.xml" value="0.21979166666666666" />
         <entry key="app/src/main/res/layout/activity_verifications.xml" value="0.2921195652173913" />
         <entry key="app/src/main/res/layout/delete_layout.xml" value="0.2803442028985507" />
-        <entry key="app/src/main/res/layout/item_profile.xml" value="0.2921195652173913" />
+        <entry key="app/src/main/res/layout/item_profile.xml" value="0.45255474452554745" />
         <entry key="app/src/main/res/layout/receive_msg.xml" value="0.2803442028985507" />
         <entry key="app/src/main/res/layout/send_msg.xml" value="0.2803442028985507" />
       </map>

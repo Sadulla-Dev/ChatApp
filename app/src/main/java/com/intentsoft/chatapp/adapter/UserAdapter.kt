@@ -7,12 +7,17 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
 import com.intentsoft.chatapp.ChatActivity
 import com.intentsoft.chatapp.R
 import com.intentsoft.chatapp.databinding.ItemProfileBinding
 import com.intentsoft.chatapp.model.User
 
 class UserAdapter(val context: Context, var userList: ArrayList<User>): RecyclerView.Adapter<UserAdapter.UserViewHolder>()  {
+
 
     inner class UserViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
         val binding: ItemProfileBinding = ItemProfileBinding.bind(itemView)
@@ -24,11 +29,15 @@ class UserAdapter(val context: Context, var userList: ArrayList<User>): Recycler
     }
 
     override fun onBindViewHolder(holder: UserViewHolder, position: Int) {
+
         val user = userList[position]
         holder.binding.username.text = user.name
         Glide.with(context).load(user.profileImage)
             .placeholder(R.drawable.avatar)
             .into(holder.binding.profile)
+
+
+
 
         holder.itemView.setOnClickListener {
             val intent = Intent(context,ChatActivity::class.java)

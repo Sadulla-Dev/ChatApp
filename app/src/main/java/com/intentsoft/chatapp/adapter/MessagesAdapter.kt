@@ -16,7 +16,6 @@ import com.intentsoft.chatapp.databinding.SendMsgBinding
 import com.intentsoft.chatapp.model.Message
 import java.util.*
 
-
 class MessagesAdapter(
     var context: Context,
     messages: ArrayList<Message>?,
@@ -34,8 +33,7 @@ class MessagesAdapter(
             val view: View = LayoutInflater.from(context).inflate(R.layout.send_msg, parent, false)
             SentViewHolder(view)
         } else {
-            val view: View =
-                LayoutInflater.from(context).inflate(R.layout.receive_msg, parent, false)
+            val view: View = LayoutInflater.from(context).inflate(R.layout.receive_msg, parent, false)
             ReceiverViewHolder(view)
         }
     }
@@ -64,8 +62,7 @@ class MessagesAdapter(
             }
             viewHolder.binding.message.text = message.message
             viewHolder.itemView.setOnLongClickListener {
-                val view: View =
-                    LayoutInflater.from(context).inflate(R.layout.delete_layout, null)
+                val view: View = LayoutInflater.from(context).inflate(R.layout.delete_layout, null)
                 val binding: DeleteLayoutBinding = DeleteLayoutBinding.bind(view)
                 val dialog: AlertDialog = AlertDialog.Builder(context)
                     .setTitle("Delete Message")

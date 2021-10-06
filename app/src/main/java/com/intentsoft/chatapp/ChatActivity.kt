@@ -33,12 +33,10 @@ class ChatActivity : AppCompatActivity() {
     var dialog: ProgressDialog? = null
     var senderUid: String? = null
     var receiverUid: String? = null
-
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityChatBinding.inflate(layoutInflater)
-        setContentView(binding!!.getRoot())
+        setContentView(binding!!.root)
         setSupportActionBar(binding!!.toolbar)
         database = FirebaseDatabase.getInstance()
         storage = FirebaseStorage.getInstance()
@@ -48,7 +46,7 @@ class ChatActivity : AppCompatActivity() {
         messages = ArrayList<Message>()
         val name = intent.getStringExtra("name")
         val profile = intent.getStringExtra("image")
-        binding!!.name.setText(name)
+        binding!!.name.text = name
         Glide.with(this@ChatActivity).load(profile)
             .placeholder(R.drawable.avatar)
             .into(binding!!.profile01)
@@ -62,10 +60,10 @@ class ChatActivity : AppCompatActivity() {
                         val status = snapshot.getValue(String::class.java)
                         if (!status!!.isEmpty()) {
                             if (status == "Offline") {
-                                binding!!.status.setVisibility(View.GONE)
+                                binding!!.status.visibility = View.GONE
                             } else {
-                                binding!!.status.setText(status)
-                                binding!!.status.setVisibility(View.VISIBLE)
+                                binding!!.status.text = status
+                                binding!!.status.visibility = View.VISIBLE
                             }
                         }
                     }
@@ -76,8 +74,8 @@ class ChatActivity : AppCompatActivity() {
         senderRoom = senderUid + receiverUid
         receiverRoom = receiverUid + senderUid
         adapter = MessagesAdapter(this, messages, senderRoom!!, receiverRoom!!)
-        binding!!.recyclerView.setLayoutManager(LinearLayoutManager(this))
-        binding!!.recyclerView.setAdapter(adapter)
+        binding!!.recyclerView.layoutManager = LinearLayoutManager(this)
+        binding!!.recyclerView.adapter = adapter
         database!!.reference.child("chats")
             .child(senderRoom!!)
             .child("messages")
@@ -95,7 +93,9 @@ class ChatActivity : AppCompatActivity() {
                 override fun onCancelled(error: DatabaseError) {}
             })
         binding!!.sendBtn.setOnClickListener(View.OnClickListener {
-            val messageTxt: String = binding!!.messageBox.getText().toString()
+
+            val messageTxt: String = binding!!.messageBox.text.toString()
+
             val date = Date()
             val message = Message(messageTxt, senderUid, date.time)
             binding!!.messageBox.setText("")
@@ -153,16 +153,14 @@ class ChatActivity : AppCompatActivity() {
                 if (data.data != null) {
                     val selectedImage = data.data
                     val calendar = Calendar.getInstance()
-                    val reference = storage!!.reference.child("chats")
-                        .child(calendar.timeInMillis.toString() + "")
+                    val reference = storage!!.reference.child("chats").child(calendar.timeInMillis.toString() + "")
                     dialog!!.show()
                     reference.putFile(selectedImage!!).addOnCompleteListener { task ->
                         dialog!!.dismiss()
                         if (task.isSuccessful) {
                             reference.downloadUrl.addOnSuccessListener { uri ->
                                 val filePath = uri.toString()
-                                val messageTxt: String =
-                                    binding!!.messageBox.getText().toString()
+                                val messageTxt: String = binding!!.messageBox.text.toString()
                                 val date = Date()
                                 val message = Message(messageTxt, senderUid, date.time)
                                 message.message = "photo"

@@ -3,6 +3,7 @@ package com.intentsoft.chatapp
 import android.app.ProgressDialog
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import androidx.recyclerview.widget.GridLayoutManager
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
@@ -20,6 +21,7 @@ class MainActivity : AppCompatActivity() {
     var usersAdapter: UserAdapter? = null
     var dialog: ProgressDialog? = null
     var user: User? = null
+    var receiverUid: String? = null
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -32,7 +34,7 @@ class MainActivity : AppCompatActivity() {
         database = FirebaseDatabase.getInstance()
         users = ArrayList<User>()
         usersAdapter = UserAdapter(this, users!!)
-        val layoutManager = GridLayoutManager(this@MainActivity, 2)
+        val layoutManager = GridLayoutManager(this@MainActivity, 1)
 
         binding!!.mRec.layoutManager = layoutManager
 
@@ -56,7 +58,6 @@ class MainActivity : AppCompatActivity() {
                 }
                 usersAdapter!!.notifyDataSetChanged()
             }
-
             override fun onCancelled(error: DatabaseError) {}
         })
     }

@@ -13,12 +13,10 @@ class VerificationsActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityVerificationsBinding.inflate(layoutInflater)
         setContentView(binding!!.root)
-
         auth = FirebaseAuth.getInstance()
 
         if (auth!!.currentUser != null){
-            val intent = Intent(this@VerificationsActivity,
-                MainActivity::class.java)
+            val intent = Intent(this@VerificationsActivity, MainActivity::class.java)
             startActivity(intent)
             finish()
 
@@ -26,8 +24,7 @@ class VerificationsActivity : AppCompatActivity() {
         supportActionBar?.hide()
         binding!!.editNumber.requestFocus()
         binding!!.continueBtn.setOnClickListener {
-            val intent = Intent(this@VerificationsActivity,
-                OTPActivity::class.java)
+            val intent = Intent(this@VerificationsActivity, OTPActivity::class.java)
             intent.putExtra("phoneNumber",binding!!.editNumber.text.toString())
             startActivity(intent)
         }

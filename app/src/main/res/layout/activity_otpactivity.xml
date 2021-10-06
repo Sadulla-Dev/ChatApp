@@ -46,6 +46,7 @@
             android:layout_gravity="center"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
+
             <com.mukesh.OtpView
                 android:id="@+id/otp_view"
                 android:layout_width="wrap_content"
@@ -53,11 +54,15 @@
                 android:layout_gravity="center"
                 android:layout_marginTop="5dp"
                 android:inputType="number"
-                android:itemBackground="#BCBCBC"
+                android:itemBackground="#FFC900"
                 android:focusableInTouchMode="true"
                 app:OtpItemCount="6"
+                android:textStyle="bold"
+                android:textSize="24sp"
+                android:textColor="@color/black"
                 app:OtpLineColor="#0068EB"
                 app:OtpViewType="line" />
+
             <Button
                 android:id="@+id/continueBtn01"
                 android:text="Continue"
