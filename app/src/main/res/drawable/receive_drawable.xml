@@ -4,21 +4,7 @@
 
     <item>
         <shape>
-            <solid android:color="#33000000"/>
-            <corners
-                android:bottomRightRadius="45dp"
-                android:topRightRadius="45dp"
-                android:topLeftRadius="45dp"/>
-        </shape>
-
-    </item>
-    <item
-        android:right="2dp"
-        android:left="2dp"
-        android:top="4dp"
-        >
-        <shape>
-            <solid android:color="#182881"/>
+            <solid android:color="#ffff"/>
             <corners
                 android:bottomRightRadius="45dp"
                 android:topRightRadius="45dp"

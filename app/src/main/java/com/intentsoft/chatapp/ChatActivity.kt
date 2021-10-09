@@ -60,7 +60,9 @@ class ChatActivity : AppCompatActivity() {
                         val status = snapshot.getValue(String::class.java)
                         if (!status!!.isEmpty()) {
                             if (status == "Offline") {
-                                binding!!.status.visibility = View.GONE
+                                binding!!.status.visibility = View.VISIBLE
+                                binding!!.status.text = "Offline"
+
                             } else {
                                 binding!!.status.text = status
                                 binding!!.status.visibility = View.VISIBLE
@@ -125,6 +127,21 @@ class ChatActivity : AppCompatActivity() {
         })
         val handler = Handler()
 
+        binding!!.messageBox.addTextChangedListener(object : TextWatcher{
+            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
+            override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
+            override fun afterTextChanged(p0: Editable?) {
+                if (binding!!.messageBox.length() > 0){
+                    binding!!.attachment.visibility = View.INVISIBLE
+                    binding!!.sendBtn.visibility = View.VISIBLE
+                }else{
+                    binding!!.attachment.visibility  = View.VISIBLE
+                    binding!!.sendBtn.visibility = View.INVISIBLE
+                }
+            }
+        })
+
+
         binding!!.messageBox.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {}
             override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {}
@@ -141,9 +158,7 @@ class ChatActivity : AppCompatActivity() {
         })
         supportActionBar!!.setDisplayShowTitleEnabled(false)
 
-//        getSupportActionBar().setTitle(name);
-//
-//        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
